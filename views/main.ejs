@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <script src="path/to/what-input.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/what-input/5.1.2/what-input.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/what-input@5.1.2/dist/what-input.min.js"></script>
+  <title>Popn Simple Simulator</title>
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <div class="main-wrapper">
+        <% var textbox_NovelID = 1; %>
+          <span class="clear textbox-wrapper">
+            <input class="textbox-novel-id" type="text" value="データセット<%= textbox_NovelID %>">
+          </span>
+        <div class="buttons-wrapper">
+          <ul class="items-even">
+            <% for (var i = 1; i <= 9; i++){ %>
+              <% if(i % 2 == 0){ %>
+                <li>
+                  <span class="btn-circle-position">                    
+                    <input id="btn-circle-<%= i %>" type="checkbox">  
+                    <label for="btn-circle-<%= i %>" class="btn btn-circle-<%= i %>"><%# i %></label>
+                  </span>                  
+                </li>
+              <% } %>
+            <% }; %>
+          </ul>
+          <ul class="items-odd">
+            <% for (var i = 1; i <= 9; i++){ %>
+              <% if(i % 2 !== 0){ %>
+               <li>
+                  <span class="btn-circle-position">                    
+                    <input id="btn-circle-<%= i %>" type="checkbox">
+                    <label for="btn-circle-<%= i %>" class="btn btn-circle-<%= i %>"><%# i %></label>
+                  </span>
+               </li>
+              <% } %>
+            <% }; %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="operations-wrapper">
+        <a href="#" class="btn btn-save">保存！</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="dataset-wrapper">
+        <table>
+          <tr>
+            <th class="table-id">ID</th>
+            <th class="table-name">データセット名</th>
+            <th class="table-bitflag">ビットフラグ</th>
+            <th class="table-operations">操作</th>
+          </tr>
+          <% var items = [{id: 1, name: "データ1", bitflag: 01010}, {id: 2, name: "データ2", bitflag: 01011}]; %>
+          <%# 用が済んだら消せ %>
+          <% items.forEach((item) => { %>
+          <tr>
+            <td class="table-id"><%= item.id %></td>
+            <td class="table-name"><%= item.name %></td>
+            <td class="table-bitflag"><%= item.bitflag %></td> <%# ここちょっと工夫必要かも？ %>
+            <td class="table-operations">
+              <a class="btn btn-data-load" href="#">読み込み</a>
+              <a class="btn btn-data-delete" href="#">削除</a>
+            </td>
+          </tr>
+          <% }); %>
+        </table>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-wrapper">
+        <a class="link-top" href="/top">トップページへ戻る</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

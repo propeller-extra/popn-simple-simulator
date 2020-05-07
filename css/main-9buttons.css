@@ -1,0 +1,55 @@
+.btn-circle-1, .btn-circle-9 {
+    background-color: rgba(245, 245, 245, 0.5);
+}
+
+.btn-circle-2, .btn-circle-8 {
+    background-color: rgba(255, 255, 0, 0.4);
+}
+
+.btn-circle-3, .btn-circle-7 {
+    background-color: rgba(0, 153, 0, 0.4);
+}
+
+.btn-circle-4, .btn-circle-6 {
+    background-color: rgba(0, 47, 255, 0.4);
+}
+
+.btn-circle-5 {
+    background-color: rgba(255, 24, 24, 0.3);
+}
+
+#btn-circle-1[type="checkbox"]:checked+label {
+    background-color: rgb(255, 255, 255);
+}
+
+#btn-circle-2[type="checkbox"]:checked+label {
+    background-color: rgb(255, 255, 0);
+}
+
+#btn-circle-3[type="checkbox"]:checked+label {
+    background-color: rgb(0, 200, 0);
+}
+
+#btn-circle-4[type="checkbox"]:checked+label {
+    background-color: rgb(0, 0, 255);
+}
+
+#btn-circle-5[type="checkbox"]:checked+label {
+    background-color: rgb(255, 24, 24);
+}
+
+#btn-circle-6[type="checkbox"]:checked+label {
+    background-color: rgb(0, 0, 255);
+}
+
+#btn-circle-7[type="checkbox"]:checked+label {
+    background-color: rgb(0, 200, 0);
+}
+
+#btn-circle-8[type="checkbox"]:checked+label {
+    background-color: rgb(255, 255, 0);
+}
+
+#btn-circle-9[type="checkbox"]:checked+label {
+   background-color: rgb(255, 255, 255);
+}

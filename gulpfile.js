@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var fs = require('fs');
+var ghPages = require('gulp-gh-pages');
 var ejs = require('gulp-ejs');
 var rename = require('gulp-rename');
 
@@ -14,4 +14,9 @@ gulp.task("ejs", function (done) {
         })) //拡張子をhtmlに
         .pipe(gulp.dest("dest/")); //出力先
     done();
+});
+
+gulp.task('deploy', function () {
+    return gulp.src('./app/**/*')
+        .pipe(ghPages());
 });

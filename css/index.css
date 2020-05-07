@@ -1,4 +1,4 @@
-@import url("main-9buttons.css");
+@import url("index-9buttons.css");
 
 .clear {
     clear: both;
@@ -24,7 +24,7 @@
 }
 
 body {
-    background-image: url("main-bg.png");
+    background-image: url("index-main-bg.png");
     background-color: rgba(255, 255, 255, 0.4);
     background-blend-mode: lighten;
     background-size: cover;

@@ -17,6 +17,6 @@ gulp.task("ejs", function (done) {
 });
 
 gulp.task('deploy', function () {
-    return gulp.src('./app/**/*')
+    return gulp.src('./dist/**/*')
         .pipe(ghPages());
 });

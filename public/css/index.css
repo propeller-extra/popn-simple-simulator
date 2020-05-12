@@ -1,16 +1,16 @@
-@import url("index-9buttons.css");
+@import url("./index-9buttons.css");
 
 .clear {
     clear: both;
 }
 
 /* ボタン選択した際の青カーソルを非表示にする */
-/* checkbox+labelにしたら必要なくなったのでコメントアウト
+
 [data-whatinput="mouse"] *:focus,
 [data-whatinput="touch"] *:focus {
     outline: none;
 }
-*/
+
 
 .btn {
     cursor: pointer;
@@ -24,7 +24,7 @@
 }
 
 body {
-    background-image: url("index-main-bg.png");
+    background-image: url("../images/index-main-bg.png");
     background-color: rgba(255, 255, 255, 0.4);
     background-blend-mode: lighten;
     background-size: cover;
@@ -109,9 +109,9 @@ body {
     opacity: 0.9;
 }
 
-/*
+/* ボタン押した時の挙動
 .btn-circle-position input[type="checkbox"]:checked + label {
-    background-color: rgba(255, 50, 193, 0.418);
+    
 }
 */
 
@@ -199,6 +199,7 @@ th {
 .link-top:hover {
     color: rgb(63, 0, 0);
 }
+
 
 .link-top:active {
     color: darkred;

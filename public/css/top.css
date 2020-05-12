@@ -1,5 +1,5 @@
 body {
-    background-image: url("top-bg.png");
+    background-image: url("../images/top-bg.png");
     background-color: rgba(255, 255, 255, 0.2);
     background-blend-mode: lighten;
     background-size: cover;

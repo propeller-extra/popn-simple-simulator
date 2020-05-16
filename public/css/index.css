@@ -49,7 +49,7 @@ body {
     display: inline-block;
 }
 
-.textbox-novel-id {
+.textbox-data-name {
     margin: 0;
     height: 50px;
     width: 250px;
@@ -109,12 +109,6 @@ body {
     opacity: 0.9;
 }
 
-/* ボタン押した時の挙動
-.btn-circle-position input[type="checkbox"]:checked + label {
-    
-}
-*/
-
 input[id^="btn-circle"] {
     display: none;
 }
@@ -122,6 +116,8 @@ input[id^="btn-circle"] {
 .operations-wrapper {
     text-align: center;
 }
+
+
 
 .btn-save {
     padding: 20px 40px;
@@ -165,26 +161,32 @@ th {
     border-collapse: collapse;
 }
 
+.table-operations div {
+    display: inline-flex;
+}
+
 .btn-data-load {
-    padding: 0 10px;
-    margin-right: 20px;
+    padding: 0 30px;
+    margin-right: 30px;
     display: inline-block;
     background-color: lightseagreen;
     color: #FFF;
     text-decoration-line: none;
     border: solid 1px gray;
     border-radius: 4px;
+    font-size: 16px;
 }
 
 .btn-data-delete {
-    padding: 0 10px;
-    margin-left: 20px;
+    padding: 0 30px;
+    margin-left: 30px;
     display: inline-block;
     background-color: lightcoral;
     color: #FFF;
     text-decoration-line: none;
     border: solid 1px gray;
     border-radius: 4px;
+    font-size: 16px;
 }
 
 .footer-wrapper {

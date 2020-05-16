@@ -1,36 +1,19 @@
+"use strict";
+
 const express = require('express');
-const mysql = require('mysql');
-
 const app = express();
+var bodyParser = require('body-parser');
 
-// --- outline: none をやらない唯一の方法 ---
-require('what-input');
-
-// ---- MySQL設定 ----
-
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '', //迂闊に載せない方がいいよな？多分…
-    database: 'popn_simple_simulator_app'
-});
-
-connection.connect((err) => {
-    if (err) {
-        console.log('error connecting: ' + err.stack);
-        return;
-    }
-    console.log('success');
-});
+// 送信されたフォームの内容を変換して取得可能にする
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // ---- 公開設定とかいろいろ
 
 app.use('/public', express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
-app.set('views', './views');
 app.set('view engine', 'ejs');
-
+app.set('views', './views');
 
 // ---- ルーター設定 ----
 

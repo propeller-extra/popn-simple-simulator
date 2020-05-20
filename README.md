@@ -6,8 +6,8 @@
 https://propeller-extra.github.io/popn-simple-simulator/
 
 ## TODO
-- データ読み込み、削除機能を来週中には仕上げる
-- 来週中には完全版をFireBaseにでも上げる
+- 上書き保存、削除機能を5月23日までに仕上げる
+- 今週中には完全版をFireBaseに上げる
 
 
 ## License

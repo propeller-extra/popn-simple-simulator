@@ -24,6 +24,7 @@ app.use('/top', router);
 app.use('/index', router);
 app.use('/create', router);
 app.use('/delete', router);
+app.use('/update', router);
 
 
 app.listen(3000);

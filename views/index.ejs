@@ -17,7 +17,12 @@
     <div class="container">
       <div class="main-wrapper">
           <span class="clear textbox-wrapper">
-            <input class="textbox-data-name" type="text" value="データ<%= textboxNewID %>">
+            <input class="textbox-data-id" type="text" value="ID: <%= mainItems[2]["ID"] %>" readonly>
+            <% if(mainItems[0]["checkedBtns"] != null){ %>
+              <input class="textbox-data-name" type="text" value="<%= mainItems[3]["name"] %>">
+            <% } else { %> 
+              <input class="textbox-data-name" type="text" value="データ<%= mainItems[2]["ID"] %>">
+            <% } %> 
           </span>
         <div class="buttons-wrapper">
           <ul class="items-even">
@@ -26,7 +31,7 @@
                 <li>
                   <span class="btn-circle-position">                    
                     <input id="btn-circle-<%= i %>" type="checkbox">  
-                    <label for="btn-circle-<%= i %>" class="btn btn-circle-<%= i %>"><%# i %></label>
+                    <label for="btn-circle-<%= i %>" class="btn btn-circle-<%= i %>"></label>
                   </span>                  
                 </li>
               <% } %>
@@ -38,25 +43,32 @@
                <li>
                   <span class="btn-circle-position">                    
                     <input id="btn-circle-<%= i %>" type="checkbox">
-                    <label for="btn-circle-<%= i %>" class="btn btn-circle-<%= i %>"><%# i %></label>
+                    <label for="btn-circle-<%= i %>" class="btn btn-circle-<%= i %>"></label>
                   </span>
                </li>
               <% } %>
             <% }; %>
           </ul>
         </div>
+        <% if(mainItems[0]["checkedBtns"] != null){ %>
+          <p class="checked-btns"><%= mainItems[0]["checkedBtns"] %> </p>
+        <% } %> 
       </div>
     </div>
     <div class="container">
       <div class="operations-wrapper">
-        <input type="submit" class="btn btn-save" value="保存！">
-        
-        <!-- 空のフォーム。上のsubmitボタン押されたら、jQueryからここに値を渡してpost実行 -->
-        <form action="/create" method="post">
-          <input type="hidden" name="P_DataName">
-          <input type="hidden" name="P_DataBit">
-        </form>
-
+        <% if(mainItems[0]["checkedBtns"] != null){ %>
+          <a href="/index" class="btn opwr-btn-cancel">キャンセル</a>
+          <input type="submit" class="btn opwr-btn-save btn-data-overwrite-save" value="上書き保存">
+          <span class="btn opwr-btn-delete">削除</span>
+        <% } else { %>
+          <input type="submit" class="btn opwr-btn-save btn-data-new-save" value="保存！">
+          <!-- 空のフォーム。saveボタン押されたら、jQueryからここに値を渡してpost実行 -->
+          <form action="/create" method="post">
+            <input type="hidden" name="P_DataName">
+            <input type="hidden" name="P_DataBit">
+          </form>
+        <% } %> 
       </div>
     </div>
     <div class="container">
@@ -68,17 +80,16 @@
             <th class="table-included-buttons">データ内容</th>
             <th class="table-operations">操作</th>
           </tr>
-          <% items.forEach((item) => { %>
+          <% mainItems[1]["tableItems"].forEach((item) => { %>
           <tr>
             <td class="table-id"><%= item.id %></td>
             <td class="table-name"><%= item.name %></td>
             <td class="table-included-buttons"><%= item.includedBtns %></td>
             <td class="table-operations">
               <div>
-                <form action="/read" method="get">        
-                  <input type="hidden" name="R_ID" value="<%= item.id %>">
+                <form action="/index/<%= item.id %>" method="get">
                   <input type="submit" class="btn btn-data-load" value="読み込み">
-                </form>            
+                </form>   
                 <form action="/delete" method="post">                  
                   <input type="hidden" name="D_ID" value="<%= item.id %>">
                   <input type="submit" class="btn btn-data-delete" value="削除">

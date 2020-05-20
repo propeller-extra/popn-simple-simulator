@@ -4,9 +4,18 @@ $(function () {
     //DEBUG
     //$('.link-top').text('jquery動作中');
 
+    // 読み込みモード時にはボタンを最初から押した状態にしておく
+    var text_checkedBtns = $('.checked-btns').text();
+    if (text_checkedBtns != null && text_checkedBtns != '') {
+        var checkedBtns = extractBitFlags(parseInt(text_checkedBtns));
+        checkedBtns.forEach((i) => {
+            $('#btn-circle-' + i).prop('checked', true);
+        });
+    }
+
     // CREATE
     // 「保存する」ボタンが押された時の処理
-    $('.btn-save').click(function () {
+    $('.btn-data-new-save').click(function () {
         var textboxDataName = $('.textbox-data-name').val();
 
         var bitFlag = 0b0;
@@ -29,4 +38,22 @@ $(function () {
 
         form.submit();
     });
+
+
+    //削除ボタンが押された時の処理
+    //ポップアップを表示させる(CSS変更)
 });
+
+function extractBitFlags(bitState) {
+
+    var bitFlags = [];
+
+    for (var i = 0; i < 9; i++) {
+        var searchFlag = 0b1 << i;
+        if (bitState & searchFlag) {
+            bitFlags.push(i + 1);
+        }
+    }
+
+    return bitFlags;
+}

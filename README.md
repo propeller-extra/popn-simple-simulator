@@ -7,7 +7,6 @@ https://propeller-extra.github.io/popn-simple-simulator/
 
 ## TODO
 - レスポンシブデザインにする（現在はPCのみ対応）
-- 今週中には完全版をFireBaseに上げる
 
 
 ## License

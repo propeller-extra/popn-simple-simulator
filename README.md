@@ -6,7 +6,7 @@
 https://propeller-extra.github.io/popn-simple-simulator/
 
 ## TODO
-- 上書き保存、削除機能を5月23日までに仕上げる
+- レスポンシブデザインにする（現在はPCのみ対応）
 - 今週中には完全版をFireBaseに上げる
 
 

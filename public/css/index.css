@@ -35,6 +35,64 @@ body {
     margin: 10px auto 40px;
 }
 
+
+.warning-delete-modal-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+}
+
+.modal {
+    position: absolute;
+    top: 20%;
+    left: 34%;
+    background-color: #e6ecf0;
+    padding: 20px 0 40px;
+    border-radius: 10px;
+    width: 450px;
+    height: auto;
+    text-align: center;
+}
+
+.data-delete-form {
+    width:100%;
+}
+
+#data-delete-form form {
+    justify-content: center;
+    display: flex;
+}
+
+#data-delete-form form span,
+#data-delete-form form input {
+    padding: 5px 10px;
+    margin: 15px 20px;
+    width: 30%;
+    color: white;
+    align-items: center;
+}
+
+.close-modal-btn {
+    background-color: rgba(0, 81, 255, 0.8);
+}
+
+.data-delete-btn {
+    background-color: rgba(189, 0, 0, 0.8);
+}
+
+.fa-times {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: rgba(128, 128, 128, 0.46);
+    cursor: pointer;
+}
+
 .main-wrapper {
     margin: 0 100px;
     padding-bottom: 30px;
@@ -219,32 +277,35 @@ tr {
 
 .table-operations div {
     width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.btn-data-load {
-    width: 60%;
+.table-data-load-btn {
     padding: 0 5px;
     margin: 2px 0;
-    display: inline-block;
     background-color: lightseagreen;
     color: #FFF;
     text-decoration-line: none;
     border: solid 1px gray;
     border-radius: 4px;
     font-size: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
-.btn-data-delete {
-    width: 60%;
+.table-data-delete-btn {
     padding: 0 5px;
     margin: 2px 0;
-    display: inline-block;
     background-color: lightcoral;
     color: #FFF;
     text-decoration-line: none;
     border: solid 1px gray;
     border-radius: 4px;
     font-size: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
 .footer-wrapper {

@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/public/css/index.css">
-  <!-- <script src="path/to/what-input.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/what-input/5.1.2/what-input.js"></script> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/npm/what-input@5.1.2/dist/what-input.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <title>Popn Simple Simulator</title>
@@ -14,6 +13,22 @@
 
 <body>
   <main>
+    <div class="container">
+      <div class="warning-delete-modal-wrapper" id="warning-delete-modal">
+        <div class="modal">
+          <div id="data-delete-form">
+            <div class="close-modal">
+              <i class="fa fa-2x fa-times"></i>
+            </div>
+            <h2>Undefind</h2>
+            <form action="/delete" method="post">
+              <span class="btn close-modal-btn close-modal">やっぱりやめる</span>
+              <input type="hidden" name="D_ID" value="">
+              <input class="btn data-delete-btn" type="submit" value="削除する">
+            </form>
+          </div>
+        </div>
+    </div>
     <div class="container">
       <div class="main-wrapper">
           <span class="clear textbox-wrapper">
@@ -60,15 +75,16 @@
         <% if(mainItems[0]["checkedBtns"] != null){ %>
           <a href="/index" class="btn opwr-btn-cancel">キャンセル</a>
           <input type="submit" class="btn opwr-btn-save btn-data-overwrite-save" value="上書き保存">
-          <span class="btn opwr-btn-delete">削除</span>
+          <span class="btn opwr-btn-delete open-modal" data-del-id="<%= mainItems[2]["ID"] %>">削除</span>
         <% } else { %>
           <input type="submit" class="btn opwr-btn-save btn-data-new-save" value="保存！">
-          <!-- 空のフォーム。saveボタン押されたら、jQueryからここに値を渡してpost実行 -->
-          <form action="/create" method="post">
-            <input type="hidden" name="P_DataName">
-            <input type="hidden" name="P_DataBit">
-          </form>
         <% } %> 
+        <!-- 空のフォーム。saveボタン押されたら、jQueryからここに値を渡してpost実行 -->
+        <form action="" method="post">
+          <input type="hidden" name="P_DataName">
+          <input type="hidden" name="P_DataBit">
+          <input type="hidden" name="P_DataID">
+        </form>
       </div>
     </div>
     <div class="container">
@@ -88,11 +104,8 @@
             <td class="table-operations">
               <div>
                 <form action="/index/<%= item.id %>" method="get">
-                  <input type="submit" class="btn btn-data-load" value="読み込み">
-                </form>   
-                <form action="/delete" method="post">                  
-                  <input type="hidden" name="D_ID" value="<%= item.id %>">
-                  <input type="submit" class="btn btn-data-delete" value="削除">
+                  <input type="submit" class="btn table-data-load-btn" value="読み込み">
+                  <span class="btn table-data-delete-btn open-modal" data-del-id="<%= item.id %>">削除</span>
                 </form>
               </div>
             </td>

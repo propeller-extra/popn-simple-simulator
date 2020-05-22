@@ -126,28 +126,42 @@ router.post('/create', (req, res) => {
     );
 });
 
-// デバッグも兼ねてるから今はこのままでいい。（今は全データ削除処理）
-router.post('/delete', (req, res) => {
+router.post('/update', (req, res) => {
+
+    var dataID = req.body.P_DataID; //これ必要
+    console.log("dataID: " + dataID);
+    var dataName = req.body.P_DataName;
+    var btnBitFlagString = req.body.P_DataBit;
+    var btnBitFlagNum = parseInt(btnBitFlagString);
+
     connection.query(
-        'TRUNCATE TABLE p_9keys_table',
+        'UPDATE p_9keys_table SET name = ?, p_9keys_data = ? WHERE id = ?',
+        [dataName, btnBitFlagNum, dataID],
         (error, results) => {
             if (error) throw error;
 
-            console.log('post /delete: ' + results);
+            console.log('NEW DATA INSERTED.');
             res.redirect('/index');
         }
     );
 });
 
-router.get('/edit', (req, res) => {
+router.post('/delete', (req, res) => {
 
-    console.log(req.query);
+    var delID = req.body.D_ID;
+    console.log('delete ID: ' + delID);
 
-    res.send("ROUTER GET: EDIT");
-});
+    connection.query(
+        'DELETE FROM p_9keys_table WHERE id = ?',
+        [delID],
+        (error, results) => {
+            if (error) throw error;
 
-router.post('/update', (req, res) => {
-    res.send("ROUTER POST: UPDATE");
+            console.log('data deleted.');
+            res.redirect('/index');
+        }
+    );
+
 });
 
 module.exports = router;

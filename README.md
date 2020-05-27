@@ -8,8 +8,10 @@ https://propeller-extra.github.io/popn-simple-simulator/
 
 ## TODO
 - レスポンシブデザインにする（現在はPCのみ対応）
-- Glitchで公開する
-  - MySqlが使えないため、NeDBに一部コードを書き換える
+- <del>Glitchで公開する</del>
+  - <del>MySqlが使えないため、NeDBに一部コードを書き換える</del>
+- Herokuで公開する
+  - MySql -> postgresにコードを移行する
 
 ## License
 MIT

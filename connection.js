@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Chocobo_18', //迂闊に載せない方がいいよな？多分…
+    password: '', //迂闊に載せない
     database: 'popn_simple_simulator_app'
 });
 

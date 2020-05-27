@@ -4,11 +4,12 @@
 ポップンのあの丸い9ボタンを簡易再現したWEBアプリです。
 
 https://propeller-extra.github.io/popn-simple-simulator/
+※プレビューは前バージョンのものになってます
 
 ## TODO
 - レスポンシブデザインにする（現在はPCのみ対応）
-- 今週中には完全版をFireBaseに上げる
-
+- Glitchで公開する
+  - MySqlが使えないため、NeDBに一部コードを書き換える
 
 ## License
 MIT
